@@ -1,12 +1,14 @@
 """
-Módulo Fibonacci
+Fibonacci Module
 
-Contiene funciones relacionadas con la sucesión de Fibonacci
+It contains functions concerning the Fibonacci sequence
 """
+import numpy as np
 
-def fib1(n):
+
+def sequence(n):
     """
-    Muestra los números de la sucesión de Fibonacci inferiores al valor introducido
+    It shows every number inferior to the input number of the Fibonacci sequence
     """
     a, b = 0, 1
 
@@ -19,9 +21,9 @@ def fib1(n):
     print()
 
 
-def fib2(n):
+def golden_ratio(n):
     """
-    Calcula el número aúreo utilizando los números de la sucesión de Fibonacci
+    It calculates the golden ratio using the Fibonacci sequence
     """
     a, b = 0, 1
 
@@ -31,3 +33,25 @@ def fib2(n):
         a = aux
 
     print(1+(a/b))
+
+
+def combinatorial_number(n, k):
+    """
+    Function that calculates the combinatorial number (n,k) using Pascal's triangle
+    """
+    pascal = np.zeros((n+1, n+1), dtype=int)
+    pascal[0][0] = 1
+
+    for i in range(1, n+1):
+        for j in range(i+1):
+            if j == 0:
+                pascal[i][j] = 1
+            elif j == i:
+                pascal[i][j] = 1
+            else:
+                pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j]
+
+    if k <= n:
+        return pascal[n][k]
+    else:
+        return "Error"

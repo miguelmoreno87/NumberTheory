@@ -1,13 +1,13 @@
 """
-Módulo Wallis
+Wallis Module
 
-Contiene funciones relacionadas con el producto de Wallis
+It contains functions concerning the Wallis product
 """
 
 
-def producto(N):
+def producto(n):
     p = 1
-    for n in range(1, N):
-        p *= ((2*n)**2)/((2*n-1)*(2*n+1))
+    for i in range(1, n):
+        p *= ((2*i)**2)/((2*i-1)*(2*i+1))
 
     return p
